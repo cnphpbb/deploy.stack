@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+
+  mongo:
+    image: hub.node:3500/mongo:4.4
+    container_name: dev-mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_config:/data/configdb
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+      - MONGO_INITDB_ROOT_PASSWORD=mongopassword
+    command: --wiredTigerCacheSizeGB 1.5
+
+volumes:
+  mongo_config:
+  mongo_data:

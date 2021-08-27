@@ -1,0 +1,65 @@
+version: '3.8'
+services:
+
+  mongo4.4:
+    image: hub.node:3500/mongo:4.4
+    container_name: "Dev-mongo4.4"
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_config:/data/configdb
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+      - MONGO_INITDB_ROOT_PASSWORD=mongopassword
+    command: --wiredTigerCacheSizeGB 1.5
+    networks:
+      dbs-net:
+        ipv4_address: 172.25.0.219
+  
+  redis5:
+    image: hub.node:3500/redis:5-alpine
+    container_name: "Dev-redis5"
+    restart: always
+    command: "--requirepass redispassword"
+    volumes:
+      - redis_data:/data
+    networks:
+      dbs-net:
+        ipv4_address: 172.25.0.209
+    ports:
+      - "6379:6379"
+  
+  mysql8:
+    image: hub.node:3500/percona:8
+    container_name: "Dev-percona8"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Daifa#Dev2020
+    volumes:
+      - mysql8_data:/var/lib/mysql
+      - mysql8_logs:/var/log/mysql
+      - ~/mydata/configs/mysql8/my.cnf:/etc/my.cnf
+    networks:
+      dbs-net:
+        ipv4_address: 172.25.0.251
+    ports:
+      - "3306:3306"  
+
+volumes:
+  mongo_config:
+  mongo_data:
+  redis_data:
+  mysql8_data:
+  mysql8_logs:
+
+
+networks:
+  dbs-net:
+    name: dbs-net
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.0.0/24 
