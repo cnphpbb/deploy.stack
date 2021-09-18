@@ -1,0 +1,96 @@
+version: "3.8"
+services:
+
+  redis:
+    image: redis:6-alpine
+    container_name: "Dev-Redis"
+    restart: always
+    command: "--requirepass Kevin#0412$Redis"
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      DevNet:
+        ipv4_address: 172.22.10.205
+
+  percona:
+    image: percona:8.0.25-15
+    container_name: "Dev-Percona"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD="Kevin#0412$Mysql"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - mysql_logs:/var/log/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      DevNet:
+        ipv4_address: 172.22.10.206
+
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.0
+    container_name: "Dev-etcd"
+    restart: always
+    volumes:
+      - etcd-data:/etcd-data
+    ports:
+      - 2379:2379
+    networks:
+      DevNet:
+        ipv4_address: 172.22.10.207
+    command:
+      - etcd
+      - --data-dir=/etcd-data
+      - --listen-client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://0.0.0.0:2379
+
+  postgresql:
+    image: postgres:13-alpine
+    container_name: "Dev-postgresql"
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD="Kevin#0412$PGSql"
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      DevNet:
+        ipv4_address: 172.22.10.208
+    
+  mongo:
+    image: mongo:5.0
+    restart: always
+    container_name: "Dev-mongo"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD="Kevin#0412$Mongo"
+    volumes:
+      - mongo_data:/data/db
+      - mongo_configdb:/data/configdb
+    ports:
+      - "27017:27017"
+    networks:
+      DevNet:
+        ipv4_address: 172.22.10.209
+
+
+volumes:
+  mysql_data:
+  mysql_logs:
+  redis_data:
+  etcd-data:
+  postgresql_data:
+  mongo_data:
+  mongo_configdb:
+
+networks:
+  DevNet:
+    name: DevNet
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.22.10.0/24
