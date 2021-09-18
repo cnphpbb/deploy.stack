@@ -3,7 +3,7 @@ version: "3.8"
 services:
   redis:
     image: redis:6-alpine
-    container_name: "Dev-Redis"
+    container_name: Dev-Redis
     restart: always
     command: "--requirepass Kevin#0412&Redis"
     volumes:
@@ -16,10 +16,10 @@ services:
 
   percona:
     image: percona:8.0.25-15
-    container_name: "Dev-Percona"
+    container_name: Dev-Percona
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD="Kevin#0412&Mysql"
+      - MYSQL_ROOT_PASSWORD=Kevin#0412&Mysql
     volumes:
       - mysql_data:/var/lib/mysql
       - mysql_logs:/var/log/mysql
@@ -31,7 +31,7 @@ services:
 
   etcd:
     image: quay.io/coreos/etcd:v3.5.0
-    container_name: "Dev-etcd"
+    container_name: Dev-Etcd
     restart: always
     volumes:
       - etcd-data:/etcd-data
@@ -48,10 +48,10 @@ services:
 
   postgresql:
     image: postgres:13-alpine
-    container_name: "Dev-postgresql"
+    container_name: Dev-postgresql
     restart: always
     environment:
-      - POSTGRES_PASSWORD="Kevin#0412&PGSql"
+      - POSTGRES_PASSWORD=Kevin#0412&PGSql
     volumes:
       - postgresql_data:/var/lib/postgresql/data
     ports:
@@ -63,10 +63,10 @@ services:
   mongo:
     image: mongo:5.0
     restart: always
-    container_name: "Dev-mongo"
+    container_name: "Dev-Mongo"
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD="Kevin#0412&Mongo"
+      - MONGO_INITDB_ROOT_PASSWORD=Kevin#0412&Mongo
     volumes:
       - mongo_data:/data/db
       - mongo_configdb:/data/configdb
