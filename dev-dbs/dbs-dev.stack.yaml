@@ -5,7 +5,7 @@ services:
     image: redis:6-alpine
     container_name: "Dev-Redis"
     restart: always
-    command: "--requirepass Kevin#0412$Redis"
+    command: "--requirepass Kevin#0412&Redis"
     volumes:
       - redis_data:/data
     ports:
@@ -19,7 +19,7 @@ services:
     container_name: "Dev-Percona"
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD="Kevin#0412$Mysql"
+      - MYSQL_ROOT_PASSWORD="Kevin#0412&Mysql"
     volumes:
       - mysql_data:/var/lib/mysql
       - mysql_logs:/var/log/mysql
@@ -51,7 +51,7 @@ services:
     container_name: "Dev-postgresql"
     restart: always
     environment:
-      - POSTGRES_PASSWORD="Kevin#0412$PGSql"
+      - POSTGRES_PASSWORD="Kevin#0412&PGSql"
     volumes:
       - postgresql_data:/var/lib/postgresql/data
     ports:
@@ -66,7 +66,7 @@ services:
     container_name: "Dev-mongo"
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD="Kevin#0412$Mongo"
+      - MONGO_INITDB_ROOT_PASSWORD="Kevin#0412&Mongo"
     volumes:
       - mongo_data:/data/db
       - mongo_configdb:/data/configdb
