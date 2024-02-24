@@ -1,0 +1,46 @@
+version: "3.8"
+services:
+
+  # 生产环境可不在docker环境搭建mysql
+  mysql8:
+    image: hub.local:3500/percona:8.0
+    container_name: "Dev-percona8"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=dev#Kevin@0412
+    volumes:
+      - mysql8_data:/var/lib/mysql
+      - mysql8_logs:/var/log/mysql
+      - "/data/deploy/configs/mysql8/my.cnf:/etc/my.cnf.d/my.cnf"
+    networks:
+      DevNet:
+        ipv4_address: 172.23.23.251
+    ports:
+      - "3306:3306"
+
+  redis5:
+    image: hub.local:3500/cnphpbb/redis:5-alpine
+    container_name: "Dev-redis5"
+    restart: always
+    command: "--requirepass Dev#gy&0412"
+    volumes:
+      - redis_data:/data
+    networks:
+      DevNet:
+        ipv4_address: 172.23.23.209
+    ports:
+      - "6379:6379"
+
+volumes:
+  mysql8_data:
+  mysql8_logs:
+  redis_data:
+
+networks:
+  DevNet:
+    name: DevNet
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.23.23.0/24

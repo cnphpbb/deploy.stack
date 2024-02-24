@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+
+  node:
+    image: hub.local:3500/cnphpbb/node:14-alpine
+    container_name: "build-node"
+    restart: always
+    tty: true
+    command: sh
+    volumes:
+      - "/data/databanks/build-sync:/data"
+    working_dir: /data
+
+  golang:
+    image: hub.local:3500/golang:1.15-alpine
+    container_name: "build-golang"
+    restart: always
+    tty: true
+    command: sh
+    volumes:
+      - "/data/databanks/build-sync:/data"
+    working_dir: /data
