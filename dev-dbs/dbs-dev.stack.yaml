@@ -48,7 +48,7 @@ services:
       - --advertise-client-urls=http://0.0.0.0:2379
 
   postgre:
-    image: postgres:13-alpine
+    image: postgres:16.2-bookworm
     container_name: Dev-postgre
     restart: always
     environment:
