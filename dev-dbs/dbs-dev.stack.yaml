@@ -1,3 +1,4 @@
+# docker compose -p dbs -f ./dev-dbs/dbs-dev.stack.yaml up -d
 version: "3.8"
 
 services:
@@ -15,7 +16,7 @@ services:
         ipv4_address: 172.22.10.205
 
   percona:
-    image: percona:8.0.25-15
+    image: percona:8.0.35-27
     container_name: Dev-Percona
     restart: always
     environment:
@@ -46,9 +47,9 @@ services:
       - --listen-client-urls=http://0.0.0.0:2379
       - --advertise-client-urls=http://0.0.0.0:2379
 
-  postgresql:
+  postgre:
     image: postgres:13-alpine
-    container_name: Dev-postgresql
+    container_name: Dev-postgre
     restart: always
     environment:
       - POSTGRES_PASSWORD=Kevin#0412&PGSql
