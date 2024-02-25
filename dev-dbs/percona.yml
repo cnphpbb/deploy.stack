@@ -1,0 +1,15 @@
+services:
+  percona:
+    image: percona:8.0.35-27
+    container_name: Dev-Percona
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Kevin#0412&Mysql
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - mysql_logs:/var/log/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      DevNet:
+        ipv4_address: 172.22.10.206

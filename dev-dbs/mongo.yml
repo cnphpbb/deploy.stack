@@ -1,0 +1,16 @@
+services:
+  mongo:
+    image: mongo:5.0
+    restart: always
+    container_name: "Dev-Mongo"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=Kevin#0412&Mongo
+    volumes:
+      - mongo_data:/data/db
+      - mongo_configdb:/data/configdb
+    ports:
+      - "27017:27017"
+    networks:
+      DevNet:
+        ipv4_address: 172.22.10.209

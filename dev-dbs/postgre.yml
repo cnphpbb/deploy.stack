@@ -1,0 +1,14 @@
+services:
+  postgre:
+    image: postgres:16.2-bookworm
+    container_name: Dev-postgre
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=Kevin#0412&PGSql
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      DevNet:
+        ipv4_address: 172.22.10.208

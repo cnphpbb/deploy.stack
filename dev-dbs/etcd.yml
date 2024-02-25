@@ -1,0 +1,17 @@
+services:
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.0
+    container_name: Dev-Etcd
+    restart: always
+    volumes:
+      - etcd-data:/etcd-data
+    ports:
+      - 2379:2379
+    networks:
+      DevNet:
+        ipv4_address: 172.22.10.207
+    command:
+      - etcd
+      - --data-dir=/etcd-data
+      - --listen-client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://0.0.0.0:2379
