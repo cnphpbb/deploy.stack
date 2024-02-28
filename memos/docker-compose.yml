@@ -11,4 +11,4 @@ services:
       - 5230:5230
     environment:
       - MEMOS_DRIVER=postgres
-      - MEMOS_DSN=postgresql://postgres:Kevin%0412&PGSql@192.168.100.184:5432/memos?sslmode=disable
+      - MEMOS_DSN=postgresql://postgres:Kevin%0412&PGSql@192.168.100.184:5432/memos?sslmode=disable&require_auth=scram-sha-256
