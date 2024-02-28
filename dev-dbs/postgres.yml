@@ -8,6 +8,8 @@ services:
     restart: always
     environment:
       - POSTGRES_PASSWORD=Kevin#0412&PGSql
+      - POSTGRES_HOST_AUTH_METHOD=scram-sha-256
+      - POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256
     volumes:
       - postgresql_data:/var/lib/postgresql/data
     ports:
