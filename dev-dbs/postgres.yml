@@ -1,4 +1,4 @@
-# docker compose -p dbs -f ./dev-dbs/dbs.networks.set.yml -f ./dev-dbs/postgres.yml up
+# docker compose -p dbs -f ./dev-dbs/dbs.networks.set.yml -f ./dev-dbs/postgres.yml pull
 # docker compose -p dbs -f ./dev-dbs/dbs.networks.set.yml -f ./dev-dbs/postgres.yml up -d
 services:
 
