@@ -5,7 +5,7 @@ services:
     image: portainer/agent:2.19.4
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /var/lib/docker/volumes:/var/lib/docker/volumes
+      - /data/docker/volumes:/var/lib/docker/volumes
     networks:
       - agent_network
     deploy:
@@ -18,6 +18,7 @@ services:
     command: -H tcp://tasks.agent:9001 --tlsskipverify
     ports:
       - "9000:9000"
+      - "9443:9443"
       - "8000:8000"
     volumes:
       - portainer_data:/data
