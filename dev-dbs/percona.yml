@@ -13,3 +13,7 @@ services:
     networks:
       DevNet:
         ipv4_address: 172.22.10.206
+
+volumes:
+  mysql_data:
+  mysql_logs:

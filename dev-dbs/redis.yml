@@ -1,6 +1,6 @@
 services:
   redis:
-    image: redis:6-alpine
+    image: redis:7.2.4-alpine
     container_name: Dev-Redis
     restart: always
     command: "--requirepass Kevin#0412&Redis"
@@ -11,3 +11,6 @@ services:
     networks:
       DevNet:
         ipv4_address: 172.22.10.205
+
+volumes:
+  redis_data:

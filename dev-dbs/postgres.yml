@@ -1,5 +1,8 @@
+# docker compose -p dbs -f ./dev-dbs/dbs.networks.set.yml -f ./dev-dbs/postgres.yml up
+# docker compose -p dbs -f ./dev-dbs/dbs.networks.set.yml -f ./dev-dbs/postgres.yml up -d
 services:
-  postgre:
+
+  postgres:
     image: postgres:16.2-bookworm
     container_name: Dev-postgre
     restart: always
@@ -12,3 +15,6 @@ services:
     networks:
       DevNet:
         ipv4_address: 172.22.10.208
+
+volumes:
+  postgresql_data:

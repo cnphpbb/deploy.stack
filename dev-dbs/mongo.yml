@@ -14,3 +14,7 @@ services:
     networks:
       DevNet:
         ipv4_address: 172.22.10.209
+
+volumes:
+  mongo_data:
+  mongo_configdb:

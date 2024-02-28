@@ -10,10 +10,4 @@ networks:
         - subnet: 172.22.10.0/24
 
 volumes:
-  mysql_data:
-  mysql_logs:
   redis_data:
-  etcd-data:
-  postgresql_data:
-  mongo_data:
-  mongo_configdb:
