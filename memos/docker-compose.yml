@@ -9,6 +9,6 @@ services:
       - /data/volumes/memos/data:/var/opt/memos
     ports:
       - 5230:5230
-    environment:
-      - MEMOS_DRIVER=postgres
-      - MEMOS_DSN=postgresql://postgres:Kevin%0412&PGSql@192.168.100.184:5432/memos?sslmode=disable
+    #environment:
+    #  - MEMOS_DRIVER=postgres
+    #  - MEMOS_DSN=postgresql://postgres:Kevin%0412&PGSql@192.168.100.184:5432/memos?sslmode=disable
