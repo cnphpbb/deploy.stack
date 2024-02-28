@@ -1,0 +1,23 @@
+# mkdir -pv gitea/{data,config}
+# cd gitea
+# chown 1000:1000 config/ data/
+
+version: "3.9"
+
+services:
+
+  gitea:
+    image: gitea/gitea:1.21.6-rootless
+    restart: always
+    container_name: gitea-app
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    volumes:
+      - /data/volumes/gitea/data:/var/lib/gitea
+      - /data/volumes/gitea/config:/etc/gitea
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 3000:3000
+      - 2222:2222
