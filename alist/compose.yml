@@ -1,0 +1,17 @@
+# mkdir -pv /data/volumes/alist/data
+# pull docker compose --env-file ./alist/env.yml -f ./alist/compose.yml pull
+# run:: docker compose -p alist --env-file ./alist/env.yml -f ./alist/compose.yml up -d
+version: '3.9'
+services:
+  alist:
+    image: ${IMAGE_TAG}
+    volumes:
+      - ${DATA_PATH}:/opt/alist/data'
+    ports:
+      - '5244:5244'
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
