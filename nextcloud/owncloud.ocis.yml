@@ -1,3 +1,7 @@
+# mkdir -pv /data/volumes/ocis/{config,data}
+# chown -R 1000:1000 /data/volumes/ocis
+# pull:: docker compose -p owncloud -f ./nextcloud/owncloud.ocis.yml pull
+# init:: docker run --rm -it -v /data/volumes/ocis/config:/etc/ocis owncloud/ocis init
 # docker compose -p owncloud -f ./nextcloud/owncloud.ocis.yml up -d
 version: '3.9'
 services:
