@@ -1,0 +1,10 @@
+#
+version:
+services:
+
+  nextcloud:
+    image: nextcloud/all-in-one:latest
+    restart: unless-stopped
+    container_name: nextcloud
+    ports:
+      - 8090:8080
