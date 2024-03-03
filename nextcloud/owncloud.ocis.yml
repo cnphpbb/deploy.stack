@@ -1,0 +1,16 @@
+# docker compose -p owncloud -f ./nextcloud/owncloud.ocis.yml up -d
+version: '3.9'
+services:
+
+  ocis:
+    image: owncloud/ocis:latest
+    environment:
+      - 'OCIS_URL=https://192.168.1.1:9200'
+      - 'PROXY_HTTP_ADDR=0.0.0.0:9200'
+      - OCIS_INSECURE=true
+    volumes:
+      - /data/volumes/ocis/data:/var/lib/ocis
+      - /data/volumes/ocis/config:/etc/ocis
+    ports:
+      - '9200:9200'
+    restart: unless-stopped
