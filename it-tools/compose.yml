@@ -1,0 +1,9 @@
+# docker compose p it-tools -f it-tools/compose.yml up -d
+version: "3.9"
+services:
+
+  it-tools:
+    image: corentinth/it-tools:latest
+    restart: unless-stopped
+    ports:
+      - "8380:80"
