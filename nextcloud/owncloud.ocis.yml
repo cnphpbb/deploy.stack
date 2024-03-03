@@ -9,7 +9,7 @@ services:
   ocis:
     image: owncloud/ocis:latest
     environment:
-      - 'OCIS_URL=https://192.168.1.1:9200'
+      - 'OCIS_URL=https://192.168.10.200:9200'
       - 'PROXY_HTTP_ADDR=0.0.0.0:9200'
       - OCIS_INSECURE=true
     volumes:
