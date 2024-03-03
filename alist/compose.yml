@@ -1,4 +1,4 @@
-# mkdir -pv /data/volumes/alist/data
+# mkdir -pv /data/volumes/alist/{data,localFS}
 # pull:: docker compose --env-file ./alist/env.yml -f ./alist/compose.yml pull
 # run:: docker compose -p alist --env-file ./alist/env.yml -f ./alist/compose.yml up -d
 ## 随机生成一个密码
@@ -8,7 +8,10 @@ services:
   alist:
     image: ${IMAGE_TAG}
     volumes:
+      # alist app data
       - ${DATA_PATH}:/opt/alist/data
+      # alist local fs data path
+      - $｛LOCALFS_PATH｝:/data
     ports:
       - '5244:5244'
     environment:
