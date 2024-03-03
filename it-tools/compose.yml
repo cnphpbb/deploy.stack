@@ -3,7 +3,7 @@ version: "3.9"
 services:
 
   it-tools:
-    image: corentinth/it-tools:latest
+    image: corentinth/it-tools:2023.12.21-5ed3693
     restart: unless-stopped
     ports:
       - "8380:80"
