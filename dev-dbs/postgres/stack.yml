@@ -1,13 +1,13 @@
-# docker compose -p dbs -f ./dev-dbs/dbs.networks.set.yml -f ./dev-dbs/postgres.yml pull
-# docker compose -p dbs -f ./dev-dbs/dbs.networks.set.yml -f ./dev-dbs/postgres.yml up -d
+#pull:: docker compose --env-file ./dev-dbs/postgres/env.cfg -f ./dev-dbs/postgres/stack.yml pull
+#run::  docker compose -p dev-dbs  --env-file ./dev-dbs/postgres/env.cfg -f ./dev-dbs/postgres/stack.yml up -d
 services:
 
   postgres:
-    image: postgres:16.2-bookworm
+    image: ${IMAGE_TAG}
     container_name: Dev-postgre
     restart: always
     environment:
-      - POSTGRES_PASSWORD=Kevin%0412
+      - POSTGRES_PASSWORD=Kevin0412PgSql
       - POSTGRES_HOST_AUTH_METHOD=scram-sha-256
       - POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256
       - TZ=Asia/Shanghai
@@ -15,9 +15,6 @@ services:
       - postgresql_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    networks:
-      DevNet:
-        ipv4_address: 172.22.10.208
 
 volumes:
   postgresql_data:

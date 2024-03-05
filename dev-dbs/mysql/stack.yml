@@ -1,0 +1,21 @@
+# Pull:: docker compose --env-file ./dev-dbs/mysql/env.cfg -f ./dev-dbs/mysql/stack.yml pull
+# Run:: docker compose -p dev-dbs --env-file ./dev-dbs/mysql/env.cfg -f ./dev-dbs/mysql/stack.yml up -d
+
+services:
+  mysql:
+    image: mysql:8.3.0
+    container_name: Dev-mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Kevin%0412%Mysql
+      - TZ=Asia/Shanghai
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - mysql_logs:/var/log/mysql
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  mysql_data:
+  mysql_logs:
