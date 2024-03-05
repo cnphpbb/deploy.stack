@@ -1,4 +1,4 @@
-# run:: docker compose -p memos -f ./memos/local.yml up -d
+# run:: docker compose -p memos -f ./memos/local.stack.yml up -d
 
 services:
   memos:
@@ -7,11 +7,11 @@ services:
     volumes:
       - data:/var/opt/memos
     ports:
-      - '5230:5230'
+      - '8230:5230'
     container_name: memos
     environment:
       - MEMOS_DRIVER=postgres
-      - MEMOS_DSN=postgresql://postgres:Kevin0412PgSql@10.10.13.233:5432/memos-db?sslmode=disable
+      - MEMOS_DSN=postgresql://postgres:Kevin0412PgSql@192.168.100.184:5432/memos-db?sslmode=disable
       - TZ=Asia/Shanghai
 
 volumes:
