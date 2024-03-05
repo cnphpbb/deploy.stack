@@ -1,0 +1,20 @@
+# path:: mkdir -pv /data/volumes/memos/data
+# run:: docker compose -p memos --env-file ./memos/env.cfg -f ./memos/stack.yml up -d
+
+services:
+  memos:
+    image: ${IMAGE_TAG}
+    volumes:
+      - ${Volumes_Path}/data:/var/opt/memos
+    ports:
+      - '5230:5230'
+    container_name: memos
+    environment:
+      - MEMOS_DRIVER=${DB_DRIVER}
+      - MEMOS_DSN=user=${DB_USER} password=${DB_PASSWORD} dbname=${DB_DATANAME} host=${DB_HOST} port=${DB_POST}  sslmode=disable
+      #- MEMOS_DSN=${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_POST}/${DB_DATANAME}?sslmode=disable
+      #- MEMOS_DRIVER=mysql
+      #- MEMOS_DSN=root:password@tcp(localhost)/memos_prod
+      - TZ=Asia/Shanghai
+#volumes:
+#  data:
