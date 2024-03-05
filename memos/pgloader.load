@@ -1,6 +1,6 @@
 load database
      from sqlite:///data/volumes/memos/data/memos_prod.db
-     into postgresql://postgres:Kevin0412PgSql@192.168.100.184:5432/memos-db?sslmode=disable
+     into postgresql://postgres:Kevin0412PgSql@192.168.100.184:5432/memos-db-test?sslmode=disable
 
  with include drop, create tables, create indexes, reset sequences
 
