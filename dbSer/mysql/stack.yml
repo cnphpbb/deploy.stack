@@ -1,5 +1,5 @@
-# Pull:: docker compose --env-file ./dev-dbs/mysql/env.cfg -f ./dev-dbs/mysql/stack.yml pull
-# Run:: docker compose -p dev-dbs --env-file ./dev-dbs/mysql/env.cfg -f ./dev-dbs/mysql/stack.yml up -d
+# Pull:: docker compose --env-file ./dbSer/mysql/env.cfg -f ./dbSer/mysql/prod.stack.yml pull
+# Run:: docker compose -p dbSer --env-file ./dbSer/mysql/env.cfg -f ./dbSer/mysql/prod.stack.yml up -d
 
 services:
   mysql:

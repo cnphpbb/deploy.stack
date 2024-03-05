@@ -1,4 +1,4 @@
-# docker compose -p dbs -f ./dev-dbs/dbs-dev.stack.yaml up -d
+# docker compose -p dbs -f ./dbSer/dbs-dev.stack.yaml up -d
 version: "3.8"
 
 services:

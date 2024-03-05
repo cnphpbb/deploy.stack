@@ -1,8 +1,8 @@
 # mkdir -pv gitea/{data,config}
 # cd gitea
 # chown 1000:1000 config/ data/
-# pull:: docker compose --env-file ./gitea/env.cfg -f ./gitea/stack.yml pull
-# Run:: docker compose -p gitea --env-file ./gitea/env.cfg -f ./gitea/stack.yml up -d
+# pull:: docker compose --env-file ./gitea/env.cfg -f ./gitea/prod.stack.yml pull
+# Run:: docker compose -p gitea --env-file ./gitea/env.cfg -f ./gitea/prod.stack.yml up -d
 version: "3.9"
 
 services:
@@ -19,6 +19,7 @@ services:
       - ${Volumes_PATH}/config:/etc/gitea
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+      - TZ=Asia/Shanghai
     ports:
       - 3000:3000
       - 2222:2222

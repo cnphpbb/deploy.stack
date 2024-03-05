@@ -1,5 +1,5 @@
-#pull:: docker compose --env-file ./dev-dbs/postgres/env.cfg -f ./dev-dbs/postgres/test.stack.yml pull
-#run::  docker compose -p test-dbs  --env-file ./dev-dbs/postgres/env.cfg -f ./dev-dbs/postgres/test.stack.yml up -d
+#pull:: docker compose --env-file ./dbSer/postgres/env.cfg -f ./dbSer/postgres/test.stack.yml pull
+#run::  docker compose -p test-dbs  --env-file ./dbSer/postgres/env.cfg -f ./dbSer/postgres/test.stack.yml up -d
 
 services:
 
