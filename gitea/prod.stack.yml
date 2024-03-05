@@ -14,12 +14,12 @@ services:
     environment:
       - USER_UID=1000
       - USER_GID=1000
-    volumes:
-      - ${Volumes_PATH}/data:/var/lib/gitea
-      - ${Volumes_PATH}/config:/etc/gitea
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
       - TZ=Asia/Shanghai
+    volumes:
+      - ${Volumes_PATH}/data:/var/lib/gitea
+      - ${Volumes_PATH}/config:/etc/gitea
     ports:
       - 3000:3000
       - 2222:2222
