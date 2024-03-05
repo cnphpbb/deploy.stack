@@ -1,10 +1,10 @@
-# Pull:: docker compose --env-file ./dbSer/mysql/env.cfg -f ./dbSer/mysql/prod.prod.stack.yml pull
-# Run:: docker compose -p dbSer --env-file ./dbSer/mysql/env.cfg -f ./dbSer/mysql/prod.prod.stack.yml up -d
+# Pull:: docker compose --env-file ./dbSer/mysql/env.cfg -f ./dbSer/mysql/prod.stack.yml pull
+# Run:: docker compose -p dbSer --env-file ./dbSer/mysql/env.cfg -f ./dbSer/mysql/prod.stack.yml up -d
 
 services:
   mysql:
     image: mysql:8.3.0
-    container_name: Dev-mysql
+    container_name: prod-mysql
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=Kevin%0412%Mysql
