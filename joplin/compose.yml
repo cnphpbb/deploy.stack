@@ -1,1 +1,19 @@
-#
+#run:: docker compose -p joplin --env-file ./joplin/env.cfg -f ./joplin/compose.yml up -d
+
+services:
+  app:
+    image: ${IMAGE_TAG}
+    container_name: joplin-server
+    restart: unless-stopped
+    ports:
+      - 22300:22300
+    environment:
+      - APP_PORT=22300
+      - APP_BASE_URL=${APP_BASE_URL}
+      - DB_CLIENT=pg
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DATABASE=${POSTGRES_DATABASE}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - TZ=Asia/Shanghai
