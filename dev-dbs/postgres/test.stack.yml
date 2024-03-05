@@ -1,0 +1,23 @@
+#pull:: docker compose --env-file ./dev-dbs/postgres/env.cfg -f ./dev-dbs/postgres/test.stack.yml pull
+#run::  docker compose -p test-dbs  --env-file ./dev-dbs/postgres/env.cfg -f ./dev-dbs/postgres/test.stack.yml up -d
+
+services:
+
+  postgres:
+    image: ${IMAGE_TAG}
+    container_name: prod-postgre
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST_AUTH_METHOD=${POSTGRES_HOST_AUTH_METHOD}
+      - POSTGRES_INITDB_ARGS=--auth-host==${POSTGRES_HOST_AUTH_METHOD}
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - TZ=Asia/Shanghai
+    volumes:
+      - data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  data:
