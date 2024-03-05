@@ -1,6 +1,6 @@
 #mkdir -pv /data/volumes/postgres/data
-#pull:: docker compose --env-file ./dbSer/postgres/env.cfg -f ./dbSer/postgres/prod.stack.yml pull
-#run::  docker compose -p prod-dbs  --env-file ./dbSer/postgres/env.cfg -f ./dbSer/postgres/prod.stack.yml up -d
+#pull:: docker compose --env-file ./dbSer/postgres/env.cfg -f ./dbSer/postgres/prod.prod.stack.yml pull
+#run::  docker compose -p prod-dbs  --env-file ./dbSer/postgres/env.cfg -f ./dbSer/postgres/prod.prod.stack.yml up -d
 services:
 
   postgres:
