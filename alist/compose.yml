@@ -1,4 +1,4 @@
-# mkdir -pv /data1/volumes/alist/{data,localFS}
+# mkdir -pv /data/volumes/alist/{data,localFS}
 # pull:: docker compose --env-file ./alist/env.yml -f ./alist/compose.yml pull
 # run:: docker compose -p alist --env-file ./alist/env.yml -f ./alist/compose.yml up -d
 ## 随机生成一个密码
