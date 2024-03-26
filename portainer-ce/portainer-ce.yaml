@@ -1,13 +1,14 @@
-# docker compose -p portainer-ce -f ./portainer-ce/portainer-ce.yaml up -d
+# docker compose -p portainer-ce --env-file ./portainer-ce/env.yml -f ./portainer-ce/portainer-ce.yaml up -d
 version: '3.8'
 services:
 
   portainer:
-    image: portainer/portainer-ce:2.19.4
+    image: ${IMAGETAG}
     restart: always
     ports:
       - "9000:9000"
       - "9443:9443"
+      - "8000:8000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - data:/data
