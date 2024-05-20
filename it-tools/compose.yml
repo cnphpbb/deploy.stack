@@ -1,9 +1,9 @@
-# docker compose -p it-tools -f it-tools/compose.yml up -d
-version: "3.9"
+# run:: docker compose -p memos --env-file ./it-tools/env.cfg -f ./it-tools/compose.yml up -d
+
 services:
 
   it-tools:
-    image: corentinth/it-tools:latest
+    image: ${IMAGE_TAG}
     restart: unless-stopped
     ports:
       - "8380:80"
