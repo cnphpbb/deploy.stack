@@ -9,6 +9,7 @@ services:
     ports:
       - '5230:5230'
     container_name: memos
+    restart: always
     environment:
       - MEMOS_DRIVER=${DB_DRIVER}
       - MEMOS_DSN=user=${DB_USER} password=${DB_PASSWORD} dbname=${DB_DATANAME} host=${DB_HOST} port=${DB_POST}  sslmode=disable

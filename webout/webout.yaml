@@ -1,0 +1,33 @@
+# run:: docker compose -p out-caddy --env-file ./webout/env.cfg -f ./webout/webout.yaml up -d
+
+services:
+  web-out:
+    image: ${IMAGE_TAG}
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - /data/configs/caddy/web-http.conf:/etc/caddy/Caddyfile
+    ports:
+      - '443:443'
+      - '80:80'
+    container_name: web-out
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
+
+  tp229-out:
+    image: ${IMAGE_TAG}
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - /data/configs/caddy/site-tp229.conf:/etc/caddy/Caddyfile
+      - /data/www-root:/www-root
+      - /data/soft:/var/www/soft
+    container_name: tp229-out
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
+
+volumes:
+  caddy_data:
+  caddy_config:

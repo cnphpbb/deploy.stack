@@ -1,0 +1,20 @@
+# run:: docker compose -p hub-registry --env-file ./hub-registry/env.cfg -f ./hub-registry/stack.yaml up -d
+
+services:
+  registry:
+    image: ${IMAGE_TAG}
+    volumes:
+      - data:/var/lib/registry
+    ports:
+      - '3500:3500'
+    container_name: hub-registry
+    restart: unless-stopped
+
+  registy-ui:
+    image: ${UI_IMAGE_TAG}
+    container_name: hub-registry-ui
+    environment:
+      - NODE_ENV=production
+      - REGISTRY_DOMAIN=hub.tp229.com:3500
+      - REGISTRY_HOST=192.168.0.7:3500
+      - REGISTRY_STORAGE_DELETE_ENABLED=true
