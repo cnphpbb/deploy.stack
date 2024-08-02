@@ -1,5 +1,4 @@
-# docker compose -p portainer-ce --env-file ./portainer-ce/env.yml -f ./portainer-ce/portainer-ce.yaml up -d
-version: '3.8'
+# Run:: docker compose -p portainer-ce --env-file ./portainer-ce/env.yml -f ./portainer-ce/portainer-ce.yaml up -d
 services:
 
   portainer:

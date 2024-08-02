@@ -3,7 +3,6 @@
 # chown 1000:1000 config/ data/
 # pull:: docker compose --env-file ./gitea/env.cfg -f ./gitea/prod.stack.yml pull
 # Run:: docker compose -p gitea --env-file ./gitea/env.cfg -f ./gitea/prod.stack.yml up -d
-version: "3.9"
 
 services:
 
