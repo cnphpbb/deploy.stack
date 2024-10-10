@@ -1,3 +1,7 @@
 #!/usr/bin/bash
 
-apt-get update && apt-get upgrade -y && apt-get autoclean && apt-get autoremove -y
+apt update \
+&& apt upgrade -y \
+&& apt dist-upgrade -y \
+&& apt autoclean \
+&& apt autoremove -y
