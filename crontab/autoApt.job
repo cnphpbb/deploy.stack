@@ -3,5 +3,5 @@
 apt update \
 && apt upgrade -y \
 && apt dist-upgrade -y \
-&& apt autoclean \
-&& apt autoremove -y
+&& apt autoremove -y \
+&& apt autoclean
