@@ -1,8 +1,8 @@
 # mkdir -pv /data/volumes/gitea/{data,config}
-# cd gitea
+# cd gitea by Raspberry pi
 # chown 1000:1000 config/ data/
-# pull:: docker compose --env-file ./gitea/env.cfg -f ./gitea/prod.stack.yml pull
-# Run:: docker compose -p gitea --env-file ./gitea/env.cfg -f ./gitea/prod.stack.yml up -d
+# pull:: docker compose --env-file ./gitea/env.cfg -f ./gitea/rpi-prod.yml pull
+# Run:: docker compose -p gitea --env-file ./gitea/env.cfg -f ./gitea/rpi-prod.yml up -d
 
 services:
 
@@ -13,12 +13,12 @@ services:
     environment:
       - USER_UID=1000
       - USER_GID=1000
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
       - TZ=Asia/Shanghai
     volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
       - ${Volumes_PATH}/data:/var/lib/gitea
       - ${Volumes_PATH}/config:/etc/gitea
     ports:
       - 3000:3000
-      - 2222:2222
+      - ${SSH_HOST_PORT}:2222
