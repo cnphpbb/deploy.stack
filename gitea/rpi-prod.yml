@@ -1,5 +1,5 @@
 # mkdir -pv /data/volumes/gitea/{data,config}
-# cd gitea by Raspberry pi
+# cd gitea by Raspberry pi(RPi)
 # chown 1000:1000 config/ data/
 # pull:: docker compose --env-file ./gitea/env.cfg -f ./gitea/rpi-prod.yml pull
 # Run:: docker compose -p gitea --env-file ./gitea/env.cfg -f ./gitea/rpi-prod.yml up -d
