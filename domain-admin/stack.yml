@@ -1,0 +1,11 @@
+# Pull: docker compose -p domain-admin --env-file ./domain-admin/env.cfg -f ./domain-admin/stack.yml pull
+# Run:: docker compose -p domain-admin --env-file ./domain-admin/env.cfg -f ./domain-admin/stack.yml up -d
+services:
+  domain-admin:
+    volumes:
+      - '${Volumes_PATH}/database:/app/database'
+      - '${Volumes_PATH}/logs:/app/logs'
+    ports:
+      - '9800:8000'
+    container_name: domain-admin
+    image: ${IMAGE_TAG}
