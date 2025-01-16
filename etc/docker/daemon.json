@@ -1,10 +1,21 @@
 {
   "registry-mirrors": [
-    "https://docker.m.daocloud.io",
     "https://hub.urlsa.us.kg",
     "https://hub.haod.eu.org",
     "https://hub.chxza.eu.org",
-    "https://hub.rat.dev"
+    "https://dockerpull.com",
+    "https://dockerproxy.cn",
+    "https://docker.loli.voto",
+    "https://docker.chenby.cn",
+    "https://docker-cf.registry.cyou",
+    "https://docker.m.daocloud.io",
+    "https://docker.ketches.cn",
+    "https://docker.1panel.dev",
+    "https://docker.1panel.live",
+    "https://docker.rainbond.cc",
+    "https://hub.rat.dev",
+    "https://docker.aityp.com/",
+    "https://docker.catiz.eu.org/"
   ],
   "data-root":"/data/docker",
   "log-driver":"json-file",
