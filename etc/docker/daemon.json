@@ -1,0 +1,18 @@
+{
+  "registry-mirrors": [
+    "https://docker.m.daocloud.io",
+    "https://hub.urlsa.us.kg",
+    "https://hub.haod.eu.org",
+    "https://hub.chxza.eu.org",
+    "https://hub.rat.dev"
+  ],
+  "data-root":"/data/docker",
+  "log-driver":"json-file",
+  "log-opts": {
+    "max-size":"30m",
+    "max-file":"5"
+  },
+  "insecure-registries": [
+    "hub.tp229.com:3500"
+  ]
+}

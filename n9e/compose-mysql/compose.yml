@@ -12,7 +12,7 @@ services:
       TZ: Asia/Shanghai
       MYSQL_ROOT_PASSWORD: Papa#20140924
     volumes:
-      - ./mysqldata:/var/lib/mysql/
+      - /data/volumes/n9e/mysqldata:/var/lib/mysql/
       - ../initsql:/docker-entrypoint-initdb.d/
       - ./etc-mysql/my.cnf:/etc/my.cnf
     networks:
