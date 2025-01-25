@@ -1,0 +1,17 @@
+# path:: mkdir -pv /data/volumes/memos/data
+# run:: docker compose -p memos --env-file ./memos/env.cfg -f ./memos/prod.stack.yml up -d
+
+services:
+
+  golang:
+    image: ${IMAGE_TAG_BASH}
+    container_name: "build-golang"
+    restart: always
+    tty: true
+    command: bash
+    volumes:
+      - ${Volumes_Path}/mygits:/app
+    working_dir: /app
+    environment:
+      - GOPROXY=https://goproxy.cn
+      - GO111MODULE=on
