@@ -1,0 +1,9 @@
+services:
+  test:
+    image: ${IMAGE_TAG}
+    container_name: "debian-test"
+    restart: unless-stopped
+    tty: true
+    command: bash
+
+

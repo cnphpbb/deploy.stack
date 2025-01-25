@@ -1,0 +1,8 @@
+services:
+
+  test:
+    image: ${IMAGE_TAG}
+    container_name: "alpine-test"
+    restart: unless-stopped
+    tty: true
+    command: ash

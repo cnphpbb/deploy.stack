@@ -1,5 +1,5 @@
-# path:: mkdir -pv /data/volumes/memos/data
-# run:: docker compose -p memos --env-file ./memos/env.cfg -f ./memos/prod.stack.yml up -d
+# path:: mkdir -pv /data/volumes/mygits
+# run:: docker compose -p memos --env-file ./builder/golang/env.cnf -f ./builder/golang/compose.yml up -d
 
 services:
 
