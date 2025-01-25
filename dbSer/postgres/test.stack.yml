@@ -5,7 +5,7 @@ services:
 
   postgres:
     image: ${IMAGE_TAG}
-    container_name: prod-postgre
+    container_name: test-postgres
     restart: always
     shm_size: 128mb
     environment:
