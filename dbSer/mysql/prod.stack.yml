@@ -3,19 +3,20 @@
 
 services:
   mysql:
-    image: mysql:8.3.0
+    image: ${IMAGE_TAG_LTS}
     container_name: prod-mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=Kevin%0412%Mysql
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - TZ=Asia/Shanghai
     volumes:
       - mysql_data:/var/lib/mysql
-      - mysql_logs:/var/log/mysql
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - "3306:3306"
-    command: --default-authentication-plugin=mysql_native_password
+    command:
+    #command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --default-authentication-plugin=mysql_native_password
 
 volumes:
   mysql_data:
-  mysql_logs:
