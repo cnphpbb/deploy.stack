@@ -1,0 +1,9 @@
+IMAGE_TAG=neosmemo/memos:0.23.0
+Volumes_Path=/data/volumes/memos
+DB_DRIVER=postgres
+DB_USER=postgres
+DB_PASSWORD=Kevin0412PgSql
+DB_DATANAME=memos-db
+#DB_HOST=192.168.100.184
+DB_HOST=192.168.10.61
+DB_POST=5432
