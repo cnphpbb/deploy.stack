@@ -1,0 +1,17 @@
+# run:: docker compose -p out-caddy --env-file ./webout/env.cfg -f ./webout/txc-webout.yml up -d
+
+services:
+  web-out:
+    image: ${IMAGE_TAG}
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - ${TXC_DEPLOY_ROOT}/webout/configs/caddy/txc-proxy.conf:/etc/caddy/Caddyfile
+      - ${TXC_VOLUMES_ROOT}/web-root:/www-root
+    ports:
+      - '443:443'
+      - '80:80'
+    container_name: web-out
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
