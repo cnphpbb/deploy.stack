@@ -15,3 +15,7 @@ services:
     restart: unless-stopped
     environment:
       - TZ=Asia/Shanghai
+
+volumes:
+  caddy_data:
+  caddy_config:
