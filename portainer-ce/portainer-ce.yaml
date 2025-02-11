@@ -1,4 +1,4 @@
-# Run:: docker compose -p portainer-ce --env-file ./portainer-ce/env.yml -f ./portainer-ce/portainer-ce.yaml up -d
+# Run:: docker compose -p portainer-ce --env-file ./portainer-ce/env.cfg -f ./portainer-ce/portainer-ce.yaml up -d
 services:
 
   portainer:

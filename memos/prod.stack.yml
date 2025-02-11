@@ -1,6 +1,6 @@
 # path:: mkdir -pv /data/volumes/memos/data
-# run-61:: docker compose -p memos --env-file ./memos/env.cfg --env-file ./memos/env-61.cnf  -f ./memos/prod.stack.yml up -d
-# run-184:: docker compose -p memos --env-file ./memos/env.cfg --env-file ./memos/env-184.cnf  -f ./memos/prod.stack.yml up -d
+# run-61:: docker compose -p memos --env-file ./memos/env.cfg --env-file ./memos/db-61.cnf  -f ./memos/prod.stack.yml up -d
+# run-184:: docker compose -p memos --env-file ./memos/env.cfg --env-file ./memos/db-184.cnf  -f ./memos/prod.stack.yml up -d
 # run-lkc:: docker compose -p memos --env-file ./memos/env.cfg --env-file ./memos/env-lkc.cnf  -f ./memos/prod.stack.yml up -d
 
 services:
