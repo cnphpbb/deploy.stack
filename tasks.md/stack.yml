@@ -9,9 +9,12 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - TZ=Asia/Shanghai
     volumes:
       - ${Volumes_Path}/tasks:/tasks
       - ${Volumes_Path}/config:/config
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
     ports:
       - 5480:8080
