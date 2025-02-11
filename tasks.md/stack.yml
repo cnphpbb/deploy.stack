@@ -1,0 +1,17 @@
+# path:: mkdir -pv /data/volumes/tasks.md/{tasks config}
+# run:: docker compose -p memos --env-file ./memos/env.cfg -f ./memos/prod.stack.yml up -d
+# run:: docker compose -p memos --env-file ./memos/env-61.cfg -f ./memos/prod.stack.yml up -d
+
+services:
+  tasks.md:
+    image: ${IMAGE_TAG}
+    container_name: tasks.md
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ${Volumes_Path}/tasks:/tasks
+      - ${Volumes_Path}/config:/config
+    restart: unless-stopped
+    ports:
+      - 5480:8080
