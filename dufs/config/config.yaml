@@ -20,7 +20,6 @@ enable-cors: true
 render-index: true
 render-try-index: true
 render-spa: true
-assets: ./assets/
 log-format: '$remote_addr "$request" $status $http_user_agent'
 log-file: ./dufs.log
 compress: low
