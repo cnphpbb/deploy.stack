@@ -13,7 +13,7 @@ services:
     command: /data --config /config/config.yaml
     volumes:
       - ${Volumes_Path}/data:/data
-      - ./config:/config:ro
+      - ${Config_Path}/dufs:/config:ro
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
