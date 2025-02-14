@@ -10,10 +10,9 @@ services:
       - TZ=Asia/Shanghai
     ports:
       - 5000:5000
-    command: /data --config /config/config.yaml
+    command: /data -A
     volumes:
       - ${Volumes_Path}/data:/data
-      - ./config:/config
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
