@@ -1,0 +1,20 @@
+# path:: mkdir -pv /data/volumes/dufs/data
+# pull:: docker compose -p memos --env-file ./dufs/env.cfg -f ./dufs/stack.yml pull
+# run:: docker compose -p memos --env-file ./dufs/env.cfg -f ./dufs/stack.yml up -d
+
+services:
+  dufs:
+    image: ${IMAGE_TAG}
+    container_name: dufs
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 5000:5000
+    command: /data --config /config/config.yaml
+    volumes:
+      - ${Volumes_Path}/data:/data
+      - ./config:/config
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+
