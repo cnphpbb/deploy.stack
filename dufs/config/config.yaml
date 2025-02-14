@@ -8,7 +8,7 @@ hidden:
   - '*.lock'
 auth:
   - admin:admin@/:rw
-  - user:pass@/src:rw,/share
+  - user:pass@/backups:rw,/share
   - '@/'  # According to the YAML spec, quoting is required.
 allow-all: false
 allow-upload: true
