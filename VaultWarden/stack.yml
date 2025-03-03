@@ -1,0 +1,15 @@
+# path:: mkdir -pv /data/volumes/VaultWarden/data
+# pull:: docker compose -p memos --env-file ./VaultWarden/env.cfg -f ./VaultWarden/stack.yml pull
+# run:: docker compose -p memos --env-file ./VaultWarden/env.cfg -f ./VaultWarden/stack.yml up -d
+
+services:
+  vaultwarden:
+    image: ${IMAGE_TAG}
+    container_name: vaultwarden
+    restart: unless-stopped
+    environment:
+      DOMAIN: "${Domain}"
+    volumes:
+      - ${Volumes_Path}/data/:/data/
+    ports:
+      - 5580:80
