@@ -1,4 +1,4 @@
-version: '3.2'
+# RUN:: docker stack deploy -c <(docker compose --env-file ./env.cfg -f ./portainer-agent-stack.yml config) base
 
 services:
   agent:
