@@ -1,3 +1,4 @@
+# docker stack deploy -c./portainer-ce/portainer-agent-stack.yml base
 version: '3.2'
 
 services:
@@ -6,6 +7,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /data/docker/volumes:/var/lib/docker/volumes
+    env_file:
+      - ./env.cfg
     networks:
       - agent_network
     deploy:
@@ -22,6 +25,8 @@ services:
       - "8000:8000"
     volumes:
       - portainer_data:/data
+    env_file:
+      - ./env.cfg
     networks:
       - agent_network
     deploy:
