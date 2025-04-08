@@ -13,5 +13,5 @@ services:
       - ${Volumes_Path}/mygits:/app
     working_dir: /app
     environment:
-      - GOPROXY=https://goproxy.cn
+      - GOPROXY=https://goproxy.cn,direct
       - GO111MODULE=on
