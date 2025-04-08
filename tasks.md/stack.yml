@@ -1,6 +1,6 @@
 # path:: mkdir -pv /data/volumes/tasks.md/{tasks,config}
-# pull:: docker compose -p memos --env-file ./tasks.md/env.cfg -f ./tasks.md/stack.yml pull
-# run:: docker compose -p memos --env-file ./tasks.md/env.cfg -f ./tasks.md/stack.yml up -d
+# pull:: docker tasks.md -p memos --env-file ./tasks.md/env.cfg -f ./tasks.md/stack.yml pull
+# run:: docker tasks.md -p memos --env-file ./tasks.md/env.cfg -f ./tasks.md/stack.yml up -d
 
 services:
   tasks.md:
