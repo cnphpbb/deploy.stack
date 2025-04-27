@@ -17,11 +17,11 @@
     "https://docker.aityp.com/",
     "https://docker.catiz.eu.org/"
   ],
-  "data-root":"/data/docker",
-  "log-driver":"json-file",
+  "data-root": "/data/docker",
+  "log-driver": "json-file",
   "log-opts": {
-    "max-size":"30m",
-    "max-file":"5"
+    "max-size": "30m",
+    "max-file": "5"
   },
   "insecure-registries": [
     "hub.tp229.com:3500"
