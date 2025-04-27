@@ -1,5 +1,6 @@
-#run:: docker compose -p joplin --env-file ./joplin/env.cfg -f ./joplin/compose.yml up -d
-
+# RUN:: docker compose -p joplin --env-file ./joplin/env.cfg -f ./joplin/compose.yml up -d
+# RUN:: docker compose -p joplin --env-file ./joplin/amd.env.cfg -f ./joplin/compose.yml up -d
+# PULL:: docker compose -p joplin --env-file./joplin/amd.env.cfg -f./joplin/compose.yml pull
 services:
   app:
     image: ${IMAGE_TAG}
