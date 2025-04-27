@@ -1,0 +1,11 @@
+deb https://mirrors.huaweicloud.com/debian/ bookworm main contrib non-free non-free-firmware
+deb-src https://mirrors.huaweicloud.comdebian/ bookworm main contrib non-free non-free-firmware
+
+deb https://mirrors.huaweicloud.com/debian/ bookworm-updates main contrib non-free non-free-firmware
+deb-src https://mirrors.huaweicloud.com/debian/ bookworm-updates main contrib non-free non-free-firmware
+
+deb https://mirrors.huaweicloud.com/debian/ bookworm-backports main contrib non-free non-free-firmware
+deb-src https://mirrors.huaweicloud.com/debian/ bookworm-backports main contrib non-free non-free-firmware
+
+deb https://mirrors.huaweicloud.com/debian-security/ bookworm-security main contrib non-free non-free-firmware
+deb-src https://mirrors.huaweicloud.com/debian-security/ bookworm-security main contrib non-free non-free-firmware
