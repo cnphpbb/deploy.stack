@@ -1,19 +1,21 @@
+# BUILD:: docker buildx build --platform linux/amd64 -t hub.tp229.com:3500/ansible-alpine:py3.13-rootless .
 FROM python:3.13.3-alpine
 # 使用国内镜像源
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 
 # 安装必要的依赖
-RUN apk add --no-cache \
+RUN apk add --update --no-cache \
     openssh-client \
     sshpass \
+    bash \
     git \
     rsync
 
 # 安装Ansible及相关工具
 RUN pip install --no-cache-dir \
+    -i https://mirrors.ustc.edu.cn/pypi/simple \
     ansible \
-    ansible-lint \
-    jmespath
+    ansible-lint
 
 # 创建非root用户（安全建议）
 RUN adduser -D ansible-user
@@ -21,5 +23,5 @@ USER ansible-user
 WORKDIR /home/ansible-user
 
 # 入口点配置
-ENTRYPOINT ["ansible"]
-CMD ["--version"]
+ENTRYPOINT []
+CMD ["ansible", "--version"]

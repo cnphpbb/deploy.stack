@@ -1,0 +1,19 @@
+# DEPLOY:: docker compose -p base --env-file ./ansible/env.cfg -f ./ansible/docker-compose.yml up -d
+services:
+  ansible:
+    image: ${IMAGE_TAG}
+    volumes:
+      - ~/.ssh:/home/ansible-user/.ssh
+      - ./ansible.cfg:/etc/ansible/ansible.cfg
+      - ./ansible_hosts:/etc/ansible/hosts
+      - ~/playbooks:/home/ansible-user/playbooks
+    environment:
+      - ANSIBLE_HOST_KEY_CHECKING=False
+    tty: true
+    stdin_open: true
+    networks:
+      - ansible-net
+
+networks:
+  ansible-net:
+    driver: bridge
