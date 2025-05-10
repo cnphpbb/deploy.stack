@@ -1,15 +1,18 @@
+# path:: mkdir -pv /data/volumes/flame/data
+# disc:: 请修改 ./env.cfg 中的PASSWORD的配置
+# pull:: docker compose -p flame --env-file ./flame/env.cfg -f ./flame/stack.yml pull
+# run:: docker compose -p flame --env-file ./flame/env.cfg -f ./flame/stack.yml up -d
 services:
   flame:
     image: ${IMAGE_TAG}
     container_name: flame
     environment:
       - TZ=Asia/Shanghai
+      - PASSWORD=${PASSWORD}
     volumes:
       - ${Volumes_Path}/data:/app/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 5005:5005
-    environment:
-      - PASSWORD=${PASSWORD}
     restart: unless-stopped
