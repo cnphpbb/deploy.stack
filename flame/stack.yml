@@ -1,0 +1,15 @@
+services:
+  flame:
+    image: ${IMAGE_TAG}
+    container_name: flame
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ${Volumes_Path}/data:/app/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 5005:5005
+    environment:
+      - PASSWORD=${PASSWORD}
+    restart: unless-stopped
