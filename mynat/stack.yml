@@ -1,0 +1,14 @@
+# path:: mkdir -pv /data/volumes/mynat/config
+# disc:: 请 cp -a ./mynat/config.toml /data/volumes/mynat/config
+# pull:: docker compose -p mynat --env-file ./mynat/env.cfg -f ./mynat/stack.yml pull
+# run:: docker compose -p mynat --env-file ./mynat/env.cfg -f ./mynat/stack.yml up -d
+services:
+  mynat:
+    image: ${IMAGE_TAG}
+    container_name: mynat
+    ports:
+      - "8080:8080"
+    restart: always
+    volumes:
+      - ${Volumes_Path}/config:/app/config
+      - /etc/localtime:/etc/localtime:ro

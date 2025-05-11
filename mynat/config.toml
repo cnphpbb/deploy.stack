@@ -1,0 +1,52 @@
+[[categories]]
+name = '搜索引擎'
+
+[[categories.links]]
+name = 'Google'
+url = 'https://google.com'
+
+[[categories.links]]
+name = 'Baidu'
+url = 'https://baidu.com'
+
+[[categories]]
+name = '社交网络'
+
+[[categories.links]]
+name = 'Twitter'
+url = 'https://twitter.com'
+
+[[categories.links]]
+name = 'Facebook'
+url = 'https://facebook.com'
+
+[[categories]]
+name = '编程工具'
+
+[[categories.links]]
+name = 'Dufs'
+url = 'http://192.168.10.61:5000/dufs/'
+
+[[categories.links]]
+name = 'DockerUI'
+url = 'http://192.168.10.61:9000/'
+
+[[categories.links]]
+name = 'MyPVE'
+url = 'https://192.168.10.233:8006/'
+
+[gin]
+# release_mode:: false || true
+release_mode = false
+
+[log]
+level = 'info'
+output = 'stdout'
+
+[security]
+cors = true
+
+[server]
+# mode :: debug(开发模式) 或 release(生产模式)
+mode = 'debug' 
+port = 8080
