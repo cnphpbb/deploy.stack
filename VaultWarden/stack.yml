@@ -1,6 +1,6 @@
 # path:: mkdir -pv /data/volumes/VaultWarden/data
-# pull:: docker compose -p memos --env-file ./VaultWarden/env.cfg -f ./VaultWarden/stack.yml pull
-# run:: docker compose -p memos --env-file ./VaultWarden/env.cfg -f ./VaultWarden/stack.yml up -d
+# pull:: docker compose -p paasd --env-file ./VaultWarden/env.cfg -f ./VaultWarden/stack.yml pull
+# run:: docker compose -p paasd --env-file ./VaultWarden/env.cfg -f ./VaultWarden/stack.yml up -d
 
 services:
   vaultwarden:
