@@ -9,6 +9,9 @@ services:
     restart: unless-stopped
     environment:
       DOMAIN: "${Domain}"
+      SIGNUPS_ALLOWED: false
+      INVITATIONS_ALLOWED: true
+      ADMIN_TOKEN: "${ADMIN_TOKEN}"
     volumes:
       - ${Volumes_Path}/data/:/data/
     ports:
