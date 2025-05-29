@@ -12,6 +12,8 @@ docker-compose.override.yml
 # 系统文件
 .DS_Store
 Thumbs.db
+test/
+tests/
 
 # 日志文件
 *.log
