@@ -1,7 +1,7 @@
 # path:: mkdir -pv /data/volumes/dufs/data && mkdir -pv /data/mygit/config/dufs
 # disc:: 请修改 ./config/config.yaml中的配置, 并将其复制到“/data/mygit/config/dufs”目录中
-# pull:: docker compose -p memos --env-file ./dufs/env.cfg -f ./dufs/stack.yml pull
-# run:: docker compose -p memos --env-file ./dufs/env.cfg -f ./dufs/stack.yml up -d
+# pull:: docker compose -p dufs --env-file ./dufs/env.cfg -f ./dufs/stack.yml pull
+# run:: docker compose -p dufs --env-file ./dufs/env.cfg -f ./dufs/stack.yml up -d
 
 services:
   dufs:

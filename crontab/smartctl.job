@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+smartctl --all -d megaraid,0 /dev/sda >> /root/smartctl.$(date +%y%m%d).log
+smartctl --all -d megaraid,1 /dev/sda >> /root/smartctl.$(date +%y%m%d).log
+smartctl --all -d megaraid,2 /dev/sda >> /root/smartctl.$(date +%y%m%d).log
+smartctl --all -d megaraid,3 /dev/sda >> /root/smartctl.$(date +%y%m%d).log
+smartctl --all -d megaraid,4 /dev/sda >> /root/smartctl.$(date +%y%m%d).log
+smartctl --all -d megaraid,5 /dev/sda >> /root/smartctl.$(date +%y%m%d).log
+smartctl --all -d megaraid,6 /dev/sda >> /root/smartctl.$(date +%y%m%d).log
+smartctl --all -d megaraid,7 /dev/sda >> /root/smartctl.$(date +%y%m%d).log
