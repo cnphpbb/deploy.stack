@@ -1,7 +1,7 @@
 # mkdir -pv /data/volumes/gitea/{data,config}
 # cd gitea by lcayun
 # chown 1000:1000 config/ data/
-# pull:: docker compose --env-file ./gitea/env.cfg -f ./gitea/lky-prod.yml up pull
+# pull:: docker compose --env-file ./gitea/env.cfg -f ./gitea/lky-prod.yml pull
 # RUN:: docker compose -p gitea --env-file ./gitea/env.cfg -f ./gitea/lky-prod.yml up -d
 
 services:
