@@ -1,0 +1,35 @@
+# mkdir -pv /data/volumes/searxng/{redis-data,etc-searxng}
+# pull:: docker compose --env-file ./searxng/env.cfg -f ./searxng/searxng.stack.yml pull
+# Run:: docker compose --env-file ./searxng/env.cfg -f ./searxng/searxng.stack.yml up -d
+
+services:
+
+  redis:
+    image: ${Redis_TAG}
+    container_name: redis
+    restart: unless-stopped
+    command: valkey-server --save 30 1 --loglevel warning
+    networks:
+      - searxng
+    volumes:
+      - redis-data:/data
+
+  searxng:
+    image: ${SearXNG_TAG}
+    container_name: searxng
+    restart: unless-stopped
+    depends_on:
+      - redis
+    environment:
+      - SEARXNG_BASE_URL=https://${SEARXNG_HOSTNAME:-localhost}/
+      - UWSGI_WORKERS=${SEARXNG_UWSGI_WORKERS:-4}
+      - UWSGI_THREADS=${SEARXNG_UWSGI_THREADS:-4}
+    ports:
+      - 8760:8080
+    networks:
+      - searxng
+    volumes:
+      - etc-searxng:/etc/searxng
+
+networks:
+  searxng: 
