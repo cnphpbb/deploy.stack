@@ -12,7 +12,7 @@ services:
     networks:
       - searxng
     volumes:
-      - redis-data:/data
+      -  ${Volumes_PATH}/redis-data:/data
 
   searxng:
     image: ${SearXNG_TAG}
@@ -29,7 +29,7 @@ services:
     networks:
       - searxng
     volumes:
-      - etc-searxng:/etc/searxng
+      - ${Volumes_PATH}/etc-searxng:/etc/searxng
 
 networks:
   searxng: 
