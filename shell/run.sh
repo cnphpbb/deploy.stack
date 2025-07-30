@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-echo "run.sh"
-echo "run.sh"
-echo "run.sh"
+echo "run.sh 1"
+echo "run.sh 2"
+echo "run.sh 3"
