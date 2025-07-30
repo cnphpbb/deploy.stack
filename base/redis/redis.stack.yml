@@ -1,0 +1,11 @@
+# Pull: docker compose -p redis --env-file ./base/redis/env.cfg -f ./base/redis/redis.stack.yml pull
+
+# Run:: docker compose -p redis --env-file ./base/redis/env.cfg -f ./base/redis/redis.stack.yml up -d
+services:
+  redis:
+    image: ${IMAGE_TAG_REDISV8}
+    ports:
+      - '6379:6379'
+    command: redis-server --appendonly yes
+    volumes:
+      - '${Volumes_PATH}/redis:/data'
