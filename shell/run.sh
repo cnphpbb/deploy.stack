@@ -11,6 +11,6 @@ updatesh() {
 }
 
 # 调用函数
-updatesh "/data/deploy.stack"
+updatesh $1
 
 
