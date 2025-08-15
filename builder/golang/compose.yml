@@ -10,7 +10,7 @@ services:
     tty: true
     command: bash
     volumes:
-      - ${Volumes_Path}/mygits:/app
+      - ${Volumes_Path}/${PROJECT_NAME}:/app
     working_dir: /app
     environment:
       - GOPROXY=https://goproxy.cn,direct
