@@ -1,0 +1,13 @@
+# run:: docker compose -p memos --env-file ./builder/nodejs/env.cfg -f ./builder/nodejs/compose.yml up -d
+
+services:
+
+  golang:
+    image: ${IMAGE_TAG_BASH}
+    container_name: "build-nodejs"
+    restart: always
+    tty: true
+    command: bash
+    volumes:
+      - ${Volumes_Path}/${PROJECT_NAME}:/app
+    working_dir: /app

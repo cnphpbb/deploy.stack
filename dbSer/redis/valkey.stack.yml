@@ -1,0 +1,11 @@
+# Pull: docker compose -p valkey --env-file ./dbSer/redis/env.cfg -f ./dbSer/redis/valkey.stack.yml pull
+
+# Run:: docker compose -p valkey --env-file ./dbSer/redis/env.cfg -f ./dbSer/redis/valkey.stack.yml up -d
+services:
+  redis:
+    image: ${IMAGE_TAG_VALKEYV8}
+    ports:
+      - '6379:6379'
+    command: valkey-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - '${Volumes_PATH}/redis:/data'

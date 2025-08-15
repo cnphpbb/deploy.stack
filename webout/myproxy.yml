@@ -1,0 +1,19 @@
+# run:: docker compose -p out-caddy --env-file ./webout/env.cfg -f ./webout/myproxy.yml up -d
+
+services:
+  web-out:
+    image: ${IMAGE_TAG}
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - /data/configs/caddy/myproxy.conf:/etc/caddy/Caddyfile
+    ports:
+      - '8080:80'
+    container_name: web-out
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
+
+volumes:
+  caddy_data:
+  caddy_config:
